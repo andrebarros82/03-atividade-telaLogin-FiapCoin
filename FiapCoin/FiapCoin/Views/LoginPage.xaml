@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:FiapCoin.ViewModel"
+    xmlns:local="clr-namespace:FiapCoin.CustomRender"
+    xmlns:behavior="clr-namespace:FiapCoin.Behavior"
+    x:Class="FiapCoin.Views.LoginPage" BackgroundColor="#a96538">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel></vm:LoginViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Frame HasShadow="False" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="icon.png"></Image>
+
+                <local:ExtendedEntry Placeholder="Email" HorizontalOptions="FillAndExpand" Text="{Binding Usuario.Email, Mode=TwoWay}">
+                    <local:ExtendedEntry.Behaviors>
+                        <behavior:EmailValidationBehavior />
+                    </local:ExtendedEntry.Behaviors>
+                </local:ExtendedEntry>
+
+                <local:ExtendedEntry Placeholder="Senha" HorizontalOptions="FillAndExpand"
+                                     IsPassword="True"
+                                     Text="{Binding Usuario.Senha, Mode=TwoWay}">
+                    <local:ExtendedEntry.Behaviors>
+                        <behavior:CampoObrigadorioBehavior />
+                    </local:ExtendedEntry.Behaviors>
+                </local:ExtendedEntry>
+
+                <Button x:Name="btnEntrar" Text="Entrar" Command="{Binding EntrarClickedCommand}" StyleClass="buttonEntar" BorderRadius="4" />
+
+                <Label Text=""></Label>
+                <Button x:Name="btnScannear" Text="Scannear Acesso" Command="{Binding ScannerClickedCommand}" StyleClass="buttonSolicitarAcesso" BorderRadius="4" />
+                
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

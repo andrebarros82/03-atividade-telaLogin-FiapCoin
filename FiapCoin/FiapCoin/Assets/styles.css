@@ -1,0 +1,26 @@
+﻿stacklayout {
+    margin: 10;
+}
+
+frame {    
+    border-color: #fff;
+    height: 300;
+    width: 300;
+    vertical-align: center
+}
+
+.buttonEntar {
+    border-color: #a96538;
+    background-color: #a96538;
+    color: #ffffff;
+    border-width: 4;
+    vertical-align:center
+}
+
+.buttonSolicitarAcesso {
+    border-color: #a96538;
+    background-color: #fff;
+    color: #a96538;
+    border-width: 1;
+    vertical-align: center
+}
